@@ -54,7 +54,7 @@ First section will load the Data sets with pickle. There are three sets that wil
 * The number of unique classes/labels in the data set is 43
 
 #### 2. Visualize the Dataset
-The next step ist do visulaize the dataset. From every class, 7 images are shown. The number of images in each class is also plotted. This shows the distrebution of all classes and it also shows, that a few classes just have little data in it.
+The next step ist do visualise the dataset. From every class, 7 images are shown. The number of images in each class is also plotted. This shows the distribution of all classes and it also shows, that a few classes just have little data in it.
 * Max. number of images in class: 2010
 * Min. number of images in class: 180
 * Mean of all images in class: 809
@@ -62,16 +62,16 @@ The next step ist do visulaize the dataset. From every class, 7 images are shown
 ![alt text][image1] ## Bild einfügen!!!
 
 #### 3. Preparing the training set
-As seen in the distrbuiton in the classes, there are a few classes with less data. This will lead to an undderrated model for this classes. Therfore, the classes are prepared with an RandomOverSampler algorith. All classes will be over sampled to the max. amount of classes available (2010 classes).
+As seen in the distribution in the classes, there are a few classes with less data. This will lead to an underrated model for this classes. Therefore, the classes are prepared with an RandomOverSampler algorithm. All classes will be over sampled to the max. amount of classes available (2010 classes).
 
 ![alt text][image2]
 ![alt text][image3]
 
 #### 4. Equalizing the images
-Since the images in the data set are very inconsistant, the images have to be equalized. The lighting for the images differs from image to image and also the texture. Therfore, the Y channels of each image are equalized with the cv2.equalizeHist function. This is performed for all data sets and gives an output of the images as following:
+Since the images in the data set are very inconsistent, the images have to be equalised. The lighting for the images differs from image to image and also the texture. Therefore, the Y channels of each image are equalised with the cv2.equalizeHist function. This is performed for all data sets and gives an output of the images as following:
 ![alt text][image5]
 
-The following destribution shows the images in the three data sets. As seen, the training data is now all at 2010 images per class:
+The following distribution shows the images in the three data sets. As seen, the training data is now all at 2010 images per class:
 ![alt text][image4]
 
 
@@ -79,7 +79,7 @@ The following destribution shows the images in the three data sets. As seen, the
 
 #### 1. Seting up the model
 
-Before the data is given to the model, a last preprocessing step is used. The data is normalizes and shuffled for each set.
+Before the data is given to the model, a last preprocessing step is used. The data is normalises and shuffled for each set.
 
 #### 2. Model achrchitecture
 
@@ -105,7 +105,7 @@ My final model consisted of the following layers:
 
 #### 3. Model training
 
-All parameters are used from LeNet network. The only exception is the used Epochs. This is currently set to 50 but its also shown, that its not converging any further so it can be lower to reduce calculation time.
+All parameters are used from LeNet network. The only exception is the used Epochs. This is currently set to 50 but it's also shown, that it's not converging any further so it can be lower to reduce calculation time.
 
 #### 4. Results of the training
 
@@ -120,14 +120,15 @@ The network is working with LeNet 5.
 * Why did you believe it would be relevant to the traffic sign application?
 LeNet shows some good results for image classification and its super fast and accurate.
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
-The over all accuracy with the ok size validation and testing set looks promessing. If the model really performes well, has to be proven later.
+The over all accuracy with the ok size validation and testing set looks promising. If the model really performs well, has to be proven later.
+
 
 
 ### Test a Model on New Images
 
 #### 1. Feeding with new images
 
-A new image pipline is defined with the correct labels. Here is an example of the image choosen:
+A new image pipeline is defined with the correct labels. Here is an example of the image choosen:
 
 ![alt text][image6]
 This image looks easy to detect. The angle of the image is not the best but it's clearly visuable and the shape is detectable.
@@ -177,44 +178,50 @@ Here are the results of the prediction:
 * 032.png: correctly identified "Stop"
 
 
-The model does not work as good as thought it wold. It is struggeling with images on a dark blackground. This issue can be solved by preprocessing the images or by training with more images which contain a blck background.
+The model does not work as good as thought it wold. It is struggling with images on a dark background. This issue can be solved by preprocessing the images or by training with more images which contain a black background.
 
 #### 3. Softmax
 
-Since 32 Images are used to test the programm, only the first 5 softmax functions are shown below:
+Since 32 Images are used to test the program, only the first 6 softmax functions are shown below:
 
-As shown aboth, the first image was classefied wrong and you can see, that its also struggeling with the prediction. Three predictions are very close together. All other functions are quiet clear and the network is not struggeling at all.
+As shown a both, the first image was classified wrong and you can see, that its also struggling with the prediction. Three predictions are very close together. All other functions are quite clear and the network is not struggling at all.
 
+Image 1:  
 Stop  
   0.45151 Priority road  
   0.26656 Bicycles crossing  
   0.26523 No entry  
   0.00901 Traffic signals  
   0.00295 Stop  
+Image 2:  
 Speed limit (70km/h)  
   1.00000 Speed limit (70km/h)  
   0.00000 Go straight or right  
   0.00000 Speed limit (80km/h)  
   0.00000 Turn right ahead  
   0.00000 Speed limit (20km/h)  
+Image 3:  
 Speed limit (70km/h)  
   1.00000 Speed limit (70km/h)  
   0.00000 Speed limit (30km/h)  
   0.00000 No vehicles  
   0.00000 Speed limit (80km/h)  
   0.00000 Stop  
+Image 4:  
 Stop
   0.99998 Stop  
   0.00002 No vehicles  
   0.00000 No passing  
   0.00000 No entry  
   0.00000 Speed limit (50km/h)  
+Image 5:  
 Stop  
   0.98342 Stop  
   0.00954 No vehicles  
   0.00704 No entry  
   0.00000 Speed limit (70km/h)  
   0.00000 Bumpy road  
+Image 6:  
 Stop  
   0.99893 Stop  
   0.00107 No vehicles  
@@ -222,4 +229,7 @@ Stop
   0.00000 No passing  
   0.00000 Priority road  
 
+## How to improve the network
+
+The first step to get better results would not be to change the network architecture. The network should work fine as it is design right now. More important would be the image pre processing. In this process, the results of the network can be improved a lot. It would be interesting to see how the networks performed with different input images (Only Grayscale, only normalised, ...)
 
