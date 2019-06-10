@@ -185,7 +185,7 @@ Since 32 Images are used to test the programm, only the first 5 softmax function
 
 As shown aboth, the first image was classefied wrong and you can see, that its also struggeling with the prediction. Three predictions are very close together. All other functions are quiet clear and the network is not struggeling at all.
 
-Stop
+Stop  
   0.45151 Priority road
   0.26656 Bicycles crossing
   0.26523 No entry
