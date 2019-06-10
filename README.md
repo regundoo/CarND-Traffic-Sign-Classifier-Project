@@ -24,9 +24,12 @@ The goals / steps of this project are the following:
 [image3]: ./WriteUpImages/Dist3corrected.png "Distribution corrected"
 [image4]: ./WriteUpImages/dist3.png "Distribution corrected"
 [image5]: ./WriteUpImages/histo.png "Histogram"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image6]: ./WriteUpImages/Stop.png "Stop"
+[image7]: ./WriteUpImages/70.png "Stop"
+[image8]: ./WriteUpImages/kids.png "kids"
+[image9]: ./WriteUpImages/kidssun.png "kidssun"
+[image10]: ./WriteUpImages/left.png "left"
+
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -107,70 +110,116 @@ All parameters are used from LeNet network. The only exception is the used Epoch
 #### 4. Results of the training
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
-
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-The architechture choosen was LeNet.
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+* training set accuracy of 1
+* validation set accuracy of 0.958 
+* test set accuracy of 0.944
 
 If a well known architecture was chosen:
 * What architecture was chosen?
+The network is working with LeNet 5.
 * Why did you believe it would be relevant to the traffic sign application?
 LeNet shows some good results for image classification and its super fast and accurate.
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
 The over all accuracy with the ok size validation and testing set looks promessing. If the model really performes well, has to be proven later.
 
- 
 
 ### Test a Model on New Images
 
-#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. Feeding with new images
 
-Here are five German traffic signs that I found on the web:
+A new image pipline is defined with the correct labels. Here is an example of the image choosen:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][image6]
+This image looks easy to detect. The angle of the image is not the best but it's clearly visuable and the shape is detectable.
 
-The first image might be difficult to classify because ...
+![alt text][image7]
+This image is perfect for detection. The background is an even coler and there is nothing much that can disturb the image.
 
-#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+![alt text][image8]
+This image is very dark and harder to detect. The pre processing algrorithem is very important for that image and will correct a few mistakes.
+
+![alt text][image9]
+The same applies for this image. The sun creats some very bright spots.
+
+![alt text][image10]
+This image is nothing special and should be no problem for the network.
+
+#### 2. Model Prediction
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+* 01.png: ERROR detected "Priority road", actual "Stop"
+* 002.png: correctly identified "Speed limit (70km/h)"
+* 003.png: correctly identified "Speed limit (70km/h)"
+* 004.png: correctly identified "Stop"
+* 005.png: correctly identified "Stop"
+* 006.png: correctly identified "Stop"
+* 007.png: correctly identified "Stop"
+* 008.png: correctly identified "Children crossing"
+* 009.png: correctly identified "Children crossing"
+* 010.png: ERROR detected "Road work", actual "Children crossing"
+* 011.png: ERROR detected "Right-of-way at the next intersection", actual "Children crossing"
+* 012.png: ERROR detected "Wild animals crossing", actual "Speed limit (30km/h)"
+* 013.png: correctly identified "Yield"
+* 014.png: correctly identified "General caution"
+* 015.png: correctly identified "Speed limit (30km/h)"
+* 016.png: ERROR detected "Priority road", actual "Stop"
+* 018.png: correctly identified "Stop"
+* 020.png: ERROR detected "Speed limit (80km/h)", actual "Speed limit (100km/h)"
+* 021.png: correctly identified "No vehicles"
+* 022.png: ERROR detected "Stop", actual "Speed limit (80km/h)"
+* 023.png: ERROR detected "Stop", actual "Vehicles over 3.5 metric tons prohibited"
+* 024.png: ERROR detected "Bicycles crossing", actual "General caution"
+* 025.png: ERROR detected "Speed limit (50km/h)", actual "Speed limit (100km/h)"
+* 026.png: ERROR detected "Speed limit (50km/h)", actual "Speed limit (80km/h)"
+* 028.png: correctly identified "Keep left"
+* 029.png: correctly identified "Keep left"
+* 032.png: correctly identified "Stop"
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model does not work as good as thought it wold. It is struggeling with images on a dark blackground. This issue can be solved by preprocessing the images or by training with more images which contain a blck background.
 
-#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### 3. Softmax
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+Since 32 Images are used to test the programm, only the first 5 softmax functions are shown below:
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+As shown aboth, the first image was classefied wrong and you can see, that its also struggeling with the prediction. Three predictions are very close together. All other functions are quiet clear and the network is not struggeling at all.
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
-
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-#### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+Stop
+  0.45151 Priority road
+  0.26656 Bicycles crossing
+  0.26523 No entry
+  0.00901 Traffic signals
+  0.00295 Stop
+Speed limit (70km/h)
+  1.00000 Speed limit (70km/h)
+  0.00000 Go straight or right
+  0.00000 Speed limit (80km/h)
+  0.00000 Turn right ahead
+  0.00000 Speed limit (20km/h)
+Speed limit (70km/h)
+  1.00000 Speed limit (70km/h)
+  0.00000 Speed limit (30km/h)
+  0.00000 No vehicles
+  0.00000 Speed limit (80km/h)
+  0.00000 Stop
+Stop
+  0.99998 Stop
+  0.00002 No vehicles
+  0.00000 No passing
+  0.00000 No entry
+  0.00000 Speed limit (50km/h)
+Stop
+  0.98342 Stop
+  0.00954 No vehicles
+  0.00704 No entry
+  0.00000 Speed limit (70km/h)
+  0.00000 Bumpy road
+Stop
+  0.99893 Stop
+  0.00107 No vehicles
+  0.00000 No entry
+  0.00000 No passing
+  0.00000 Priority road
 
 
