@@ -38,49 +38,48 @@ The goals / steps of this project are the following:
 
 You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
+
 ### Data Set Summary & Exploration
 
-#### 1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+#### 1. Load the Data
+First section will load the Data sets with pickle. There are three sets that will be handled, Trining Set, Valid Set and the Test Set. The main boundaries of the Data Set is also printed. This shows the number of trining examples, number of test examples and the image shape with the number of classes used in the data set.
 
-I used the pandas library to calculate summary statistics of the traffic
-signs data set:
+* The size of training set is 34799
+* The size of the validation set is 4410
+* The size of test set is 12630
+* The shape of a traffic sign image is (32, 32)
+* The number of unique classes/labels in the data set is 43
 
-* The size of training set is ?
-* The size of the validation set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+#### 2. Visualize the Dataset
+The next step ist do visulaize the dataset. From every class, 7 images are shown. The number of images in each class is also plotted. This shows the distrebution of all classes and it also shows, that a few classes just have little data in it.
+* Max. number of images in class: 2010
+* Min. number of images in class: 180
+* Mean of all images in class: 809
 
-#### 2. Include an exploratory visualization of the dataset.
+![alt text][image1] ## Bild einfügen!!!
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+#### 3. Preparing the training set
+As seen in the distrbuiton in the classes, there are a few classes with less data. This will lead to an undderrated model for this classes. Therfore, the classes are prepared with an RandomOverSampler algorith. All classes will be over sampled to the max. amount of classes available (2010 classes).
 
-![alt text][image1]
+##Alte Verteilung und neue Verteilung!
+![alt text][image1] ## Bild einfügen!!!
+![alt text][image1] ## Bild einfügen!!!
+
+#### 4. Equalizing the images
+Since the images in the data set are very inconsistant, the images have to be equalized. The lighting for the images differs from image to image and also the texture. Therfore, the Y channels of each image are equalized with the cv2.equalizeHist function. This is performed for all data sets and gives an output of the images as following:
+![alt text][image1] ## Bild einfügen!!!
+
+The following destribution shows the images in the three data sets. As seen, the training data is now all at 2010 images per class:
+![alt text][image1] ## Bild einfügen!!!
+
 
 ### Design and Test a Model Architecture
 
-#### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+#### 1. Seting up the model
 
-As a first step, I decided to convert the images to grayscale because ...
+Before the data is given to the model, a last preprocessing step is used. The data is normalizes and shuffled for each set.
 
-Here is an example of a traffic sign image before and after grayscaling.
-
-![alt text][image2]
-
-As a last step, I normalized the image data because ...
-
-I decided to generate additional data because ... 
-
-To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
-
-#### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 2. Model achrchitecture
 
 My final model consisted of the following layers:
 
