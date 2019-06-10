@@ -186,40 +186,40 @@ Since 32 Images are used to test the programm, only the first 5 softmax function
 As shown aboth, the first image was classefied wrong and you can see, that its also struggeling with the prediction. Three predictions are very close together. All other functions are quiet clear and the network is not struggeling at all.
 
 Stop  
-  0.45151 Priority road
-  0.26656 Bicycles crossing
-  0.26523 No entry
-  0.00901 Traffic signals
-  0.00295 Stop
-Speed limit (70km/h)
-  1.00000 Speed limit (70km/h)
-  0.00000 Go straight or right
-  0.00000 Speed limit (80km/h)
-  0.00000 Turn right ahead
-  0.00000 Speed limit (20km/h)
-Speed limit (70km/h)
-  1.00000 Speed limit (70km/h)
-  0.00000 Speed limit (30km/h)
-  0.00000 No vehicles
-  0.00000 Speed limit (80km/h)
-  0.00000 Stop
+  0.45151 Priority road  
+  0.26656 Bicycles crossing  
+  0.26523 No entry  
+  0.00901 Traffic signals  
+  0.00295 Stop  
+Speed limit (70km/h)  
+  1.00000 Speed limit (70km/h)  
+  0.00000 Go straight or right  
+  0.00000 Speed limit (80km/h)  
+  0.00000 Turn right ahead  
+  0.00000 Speed limit (20km/h)  
+Speed limit (70km/h)  
+  1.00000 Speed limit (70km/h)  
+  0.00000 Speed limit (30km/h)  
+  0.00000 No vehicles  
+  0.00000 Speed limit (80km/h)  
+  0.00000 Stop  
 Stop
-  0.99998 Stop
-  0.00002 No vehicles
-  0.00000 No passing
-  0.00000 No entry
-  0.00000 Speed limit (50km/h)
-Stop
-  0.98342 Stop
-  0.00954 No vehicles
-  0.00704 No entry
-  0.00000 Speed limit (70km/h)
-  0.00000 Bumpy road
-Stop
-  0.99893 Stop
-  0.00107 No vehicles
-  0.00000 No entry
-  0.00000 No passing
-  0.00000 Priority road
+  0.99998 Stop  
+  0.00002 No vehicles  
+  0.00000 No passing  
+  0.00000 No entry  
+  0.00000 Speed limit (50km/h)  
+Stop  
+  0.98342 Stop  
+  0.00954 No vehicles  
+  0.00704 No entry  
+  0.00000 Speed limit (70km/h)  
+  0.00000 Bumpy road  
+Stop  
+  0.99893 Stop  
+  0.00107 No vehicles  
+  0.00000 No entry  
+  0.00000 No passing  
+  0.00000 Priority road  
 
 
