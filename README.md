@@ -19,10 +19,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
+[image1]: ./WriteUpImages/Dist1.png "Distribution"
+[image2]: ./WriteUpImages/Dist2.png "Distribution 2"
+[image3]: ./WriteUpImages/Dist3corrected.png "Distribution corrected"
+[image4]: ./WriteUpImages/dist3.png "Distribution corrected"
 [image5]: ./examples/placeholder.png "Traffic Sign 2"
 [image6]: ./examples/placeholder.png "Traffic Sign 3"
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
@@ -62,15 +62,15 @@ The next step ist do visulaize the dataset. From every class, 7 images are shown
 As seen in the distrbuiton in the classes, there are a few classes with less data. This will lead to an undderrated model for this classes. Therfore, the classes are prepared with an RandomOverSampler algorith. All classes will be over sampled to the max. amount of classes available (2010 classes).
 
 ##Alte Verteilung und neue Verteilung!
-![alt text][image1] ## Bild einfügen!!!
-![alt text][image1] ## Bild einfügen!!!
+![alt text][image2] ## Bild einfügen!!!
+![alt text][image3] ## Bild einfügen!!!
 
 #### 4. Equalizing the images
 Since the images in the data set are very inconsistant, the images have to be equalized. The lighting for the images differs from image to image and also the texture. Therfore, the Y channels of each image are equalized with the cv2.equalizeHist function. This is performed for all data sets and gives an output of the images as following:
 ![alt text][image1] ## Bild einfügen!!!
 
 The following destribution shows the images in the three data sets. As seen, the training data is now all at 2010 images per class:
-![alt text][image1] ## Bild einfügen!!!
+![alt text][image4] ## Bild einfügen!!!
 
 
 ### Design and Test a Model Architecture
