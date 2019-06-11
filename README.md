@@ -99,15 +99,23 @@ My final model consisted of the following layers:
 | RELU		|        									|
 | Fully connected		| Input = 120, Output = 84 				|
 | RELU		|        									|
-| Fully connected		| Input = 84, Output = 10 				|
+| Fully connected		| Input = 84, Output = 43 				|
+| Softmax		| 				|
 
+Here is summary of hyperparameters.
 
+EPOCHS = 45
+BATCH_SIZE = 128
+optimizer = AdamOptimizer
+learning_rate = 0.001
 
-#### 3. Model training
+Initial weights:
+mu = 0
+sigma = 0.1
 
-All parameters are used from LeNet network. The only exception is the used Epochs. This is currently set to 50 but it's also shown, that it's not converging any further so it can be lower to reduce calculation time.
+The LeNet-Architecture have been successfully applied in may different visual classifications, e.g. classifying hand-written digets. The network lerns hierarchical relationships from the input and uses these relationships to inform its classification decisions.
 
-#### 4. Results of the training
+#### 3. Results of the training
 
 My final model results were:
 * training set accuracy of 1
@@ -121,7 +129,6 @@ The network is working with LeNet 5.
 LeNet shows some good results for image classification and its super fast and accurate.
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
 The over all accuracy with the ok size validation and testing set looks promising. If the model really performs well, has to be proven later.
-
 
 
 ### Test a Model on New Images
