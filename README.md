@@ -149,7 +149,7 @@ There are some solutions to prevent overfitting:
 * try dropout or early stopping
 
 Training progress for hyper parameters set 1:
-![alt text][image12]
+![alt text][image11]
 Those hyper parameters deliver the following set of results:
 
 My final model results were:
