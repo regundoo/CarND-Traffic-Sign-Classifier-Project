@@ -28,7 +28,10 @@ The goals / steps of this project are the following:
 [image7]: ./WriteUpImages/70.png "Stop"
 [image8]: ./WriteUpImages/kids.png "kids"
 [image9]: ./WriteUpImages/kidssun.png "kidssun"
-[image10]: ./WriteUpImages/left.png "left"
+[image10]: ./WriteUpImages/Training.png "training"
+[image11]: ./WriteUpImages/Training2.png "left"
+[image12]: ./WriteUpImages/Training11.png "left"
+[image13]: ./WriteUpImages/Training22.png "left"
 
 
 ## Rubric Points
@@ -130,7 +133,10 @@ LeNet shows some good results for image classification and its super fast and ac
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
 The over all accuracy with the ok size validation and testing set looks promising. If the model really performs well, has to be proven later.
 
-
+![alt text][image10]
+![alt text][image11]
+![alt text][image12]
+![alt text][image13]
 21
 
 If I understand the definition of accuracy correctly, accuracy (% of data points classified correctly) is less cumulative than let's say MSE (mean squared error). That's why you see that your loss is rapidly increasing, while accuracy is fluctuating.
