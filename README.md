@@ -28,6 +28,7 @@ The goals / steps of this project are the following:
 [image7]: ./WriteUpImages/70.png "Stop"
 [image8]: ./WriteUpImages/kids.png "kids"
 [image9]: ./WriteUpImages/kidssun.png "kidssun"
+[image14]: ./WriteUpImages/left.png "left"
 [image10]: ./WriteUpImages/Training.png "training"
 [image11]: ./WriteUpImages/Training2.png "left"
 [image12]: ./WriteUpImages/Training11.png "left"
@@ -188,7 +189,7 @@ This image is very dark and harder to detect. The pre processing algrorithem is 
 ![alt text][image9]
 The same applies for this image. The sun creats some very bright spots.
 
-![alt text][image10]
+![alt text][image14]
 This image is nothing special and should be no problem for the network.
 
 #### 2. Model Prediction
