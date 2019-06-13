@@ -105,10 +105,22 @@ My final model consisted of the following layers:
 | Fully connected		| Input = 84, Output = 43 				|
 | Softmax		| 				|
 
-Here is summary of hyperparameters.
+Here is summary of hyperparameters. The results will be discussed in the next section.
 
+Hyper parameters set 1 for comparison:
 EPOCHS = 45
 BATCH_SIZE = 128
+optimizer = AdamOptimizer
+learning_rate = 0.001
+
+Initial weights:
+mu = 0
+sigma = 0.1
+
+Hyper parameters set 2 for comparison:
+
+EPOCHS = 50
+BATCH_SIZE = 256
 optimizer = AdamOptimizer
 learning_rate = 0.001
 
@@ -120,44 +132,42 @@ The LeNet-Architecture have been successfully applied in may different visual cl
 
 #### 3. Results of the training
 
-My final model results were:
-* training set accuracy of 1
-* validation set accuracy of 0.958 
-* test set accuracy of 0.944
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-The network is working with LeNet 5.
-* Why did you believe it would be relevant to the traffic sign application?
-LeNet shows some good results for image classification and its super fast and accurate.
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
-The over all accuracy with the ok size validation and testing set looks promising. If the model really performs well, has to be proven later.
-
+Training progress for hyper parameters set 1:
 ![alt text][image10]
-![alt text][image11]
+Those hyper parameters deliver the following set of results:
+
+My final model results were:
+* training set accuracy of 0.998
+* validation set accuracy of 0.952
+* test set accuracy of 0.940
+
+As shown in the figure, the validation accuracy is fluctuation while the training loss is decreasing quickly. Some of the examples are classified randomly, whick produces fluctuations, as the number of correct random guesses always fluctuates. This is more or less the same as sensitivity to noise and could be a sign of overfitting the model.
+
+There are some solutions to prevent overfitting:
+* more data points - The set is already artificially expanded
+* change hyper parameters - done here
+* try dropout or early stopping
+
+Training progress for hyper parameters set 1:
 ![alt text][image12]
-![alt text][image13]
-21
+Those hyper parameters deliver the following set of results:
 
-If I understand the definition of accuracy correctly, accuracy (% of data points classified correctly) is less cumulative than let's say MSE (mean squared error). That's why you see that your loss is rapidly increasing, while accuracy is fluctuating.
+My final model results were:
+* training set accuracy of 0.1
+* validation set accuracy of 0.956
+* test set accuracy of 0.942
 
-Intuitively, this basically means, that some portion of examples is classified randomly, which produces fluctuations, as the number of correct random guesses always fluctuate (imagine accuracy when coin should always return "heads"). Basically sensitivity to noise (when classification produces random result) is a common definition of overfitting (see wikipedia):
+As shown in the graph, the noise in the validation set accuracy stopt after a few iterations and the model provides even better values for the training accuracy and test accuracy. This is definatly not the final solution for the fluctuations and the increasing validation accuracy loss at the end of the trining but it gives a good direction.
 
-In statistics and machine learning, one of the most common tasks is to fit a "model" to a set of training data, so as to be able to make reliable predictions on general untrained data. In overfitting, a statistical model describes random error or noise instead of the underlying relationship
+* What architecture was chosen?
+LeNet
 
-Another evidence of overfitting is that your loss is increasing, Loss is measured more precisely, it's more sensitive to the noisy prediction if it's not squashed by sigmoids/thresholds (which seems to be your case for the Loss itself). Intuitively, you can imagine a situation when network is too sure about output (when it's wrong), so it gives a value far away from threshold in case of random misclassification.
+* Why did you believe it would be relevant to the traffic sign application?
+LeNet5 proved to be reasonably predictive out of the box (89% accuracy), with additional gains through image pre processing and changing some small parameters gave it the additional edge required to reach 95.6% on the validation set.
 
-Regarding your case, your model is not properly regularized, possible reasons:
+* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+There is still a bit of overfitting in this model, as the training set is higher than both the validation and test set accuracy. With increasing the parameters in the random transformation and generating more samples to create a more balanced dataset we can probably do even better.
 
-not enough data-points, too much capacity
-ordering
-no/wrong feature scaling/normalization
-learning rate: 𝛼 is too large, so SGD jumps too far and misses the area near local minima. This would be extreme case of "under-fitting" (insensitivity to data itself), but might generate (kind of) "low-frequency" noise on the output by scrambling data from the input - contrary to the overfitting intuition, it would be like always guessing heads when predicting a coin. As @JanKukacka pointed out, arriving at the area "too close to" a minima might cause overfitting, so if 𝛼 is too small it would get sensitive to "high-frequency" noise in your data. 𝛼 should be somewhere in between.
-Possible solutions:
-
-obtain more data-points (or artificially expand the set of existing ones)
-play with hyper-parameters (increase/decrease capacity or regularization term for instance)
-regularization: try dropout, early-stopping, so on
 
 
 ### Test a Model on New Images
